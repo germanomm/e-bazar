@@ -2,10 +2,7 @@
 layout: default
 ---
 <style>
-    .back-btn {
-        margin-bottom: 40px;
-        display: inline-block;
-    }
+    .back-btn { margin-bottom: 40px; display: inline-block; }
     .btn-link {
         text-decoration: none;
         color: var(--text-secondary);
@@ -37,8 +34,12 @@ layout: default
     .product-data h2 { 
         font-size: 32px; font-weight: 300; letter-spacing: 0.05em; margin-bottom: 20px; 
     }
+    /* Preço em destaque na página interna */
     .product-data .price { 
-        font-size: 24px; color: var(--accent); margin-bottom: 30px; 
+        font-size: 28px; 
+        color: #b38b59; 
+        font-weight: 700; 
+        margin-bottom: 30px; 
     }
     .product-data .description { 
         font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 40px; 
@@ -65,7 +66,6 @@ layout: default
     </div>
 </article>
 
-<!-- JSON-LD Product -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",

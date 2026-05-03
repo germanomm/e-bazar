@@ -7,11 +7,10 @@ link_olx: "https://www.olx.com.br/vi/1498932233"
 categories: livros
 ---
 
-Uma história inesquecível sobre uma mulher que faz um pacto para viver para sempre, mas é condenada a ser esquecida por todos que conhece. 
+Uma história inesquecível sobre um pacto que muda a vida de uma jovem para sempre: viver eternamente, mas ser esquecida por todos que conhece. Exemplar novo e lacrado, garantindo a integridade absoluta da obra para colecionadores e leitores exigentes. Uma peça de destaque em qualquer estante.
 
 **Detalhes do exemplar:**
-* **Editora:** Galera Record
 * **Gênero:** Fantasia Histórica
-* **Estado:** Edição em excelente estado de conservação.
+* **Estado:** Novo, ainda lacrado. 
 
 Uma leitura profunda e reflexiva, favorita da comunidade literária (Booktok).

@@ -27,7 +27,7 @@ title: Vitrine
     
     .img-wrapper {
         background: var(--card-bg);
-        border-radius: 40px; /* Bordas bem redondas estilo Oh My Candy */
+        border-radius: 40px; 
         padding: 40px;
         margin-bottom: 25px;
         border: 1px solid var(--border);
@@ -46,18 +46,18 @@ title: Vitrine
         max-height: 100%;
         width: auto;
         object-fit: contain;
-        transition: transform 0.6s ease;
     }
-
-    .product-card:hover img { transform: scale(1.1); }
     
     .product-info { text-align: center; }
     .product-info h3 { 
         font-size: 16px; font-weight: 500; margin-bottom: 8px; 
         letter-spacing: 0.02em;
     }
+    /* Preço com cor mais visível (Bronze Intenso) */
     .product-info .price { 
-        color: var(--accent); font-weight: 400; font-size: 18px; 
+        color: #b38b59; 
+        font-weight: 700; 
+        font-size: 19px; 
     }
 </style>
 
@@ -79,21 +79,3 @@ title: Vitrine
     </a>
   {% endfor %}
 </div>
-
-<!-- JSON-LD ItemList -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org/",
-  "@type": "ItemList",
-  "itemListElement": [
-    {% for post in site.posts %}
-    {
-      "@type": "ListItem",
-      "position": {{ forloop.index }},
-      "url": "{{ site.url }}{{ post.url }}",
-      "name": "{{ post.title }}"
-    }{% unless forloop.last %},{% endunless %}
-    {% endfor %}
-  ]
-}
-</script>
