@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Bazar | GMM</title>
+    <meta name="description" content="Bazar pessoal de Germano em Manaus. Livros e eletrônicos em ótimo estado.">
+    <link rel="stylesheet" href="estilo.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>E-BAZAR GMM</h1>
+        <p>Manaus, AM</p>
+        <nav>
+            <button onclick="filtrar('todos')">Todos</button>
+            <button onclick="filtrar('livros')">Livros</button>
+            <button onclick="filtrar('eletronicos')">Eletrônicos</button>
+        </nav>
+    </header>
+
+    <main id="catalogo">
+        <!-- Produtos carregados via JS -->
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Germano | e-bazar.gmm.tec.br</p>
+    </footer>
+
+    <script>
+        async function carregarProdutos() {
+            try {
+                const response = await fetch('produtos.yml');
+                const texto = await response.text();
+                const produtos = jsyaml.load(texto);
+                renderizar(produtos);
+            } catch (e) {
+                console.error("Erro ao carregar produtos:", e);
+            }
+        }
+
+        function renderizar(lista) {
+            const container = document.getElementById('catalogo');
+            container.innerHTML = lista.map(p => `
+                <div class="card" data-categoria="${p.categoria}">
+                    <img src="${p.imagem}" alt="${p.titulo}">
+                    <div class="card-info">
+                        <h3>${p.titulo}</h3>
+                        <p class="preco">R$ ${p.preco}</p>
+                        <p class="desc">${p.descricao}</p>
+                        <a href="${p.link_olx}" target="_blank" class="btn-olx">Ver na OLX</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filtrar(cat) {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.style.display = (cat === 'todos' || card.dataset.categoria === cat) ? 'block' : 'none';
+            });
+        }
+
+        carregarProdutos();
+    </script>
+</body>
+</html>
