@@ -1,0 +1,10 @@
+title: E-Bazar GMM
+description: Bazar pessoal de Germano em Manaus.
+url: "https://e-bazar.gmm.tec.br"
+baseurl: ""
+markdown: kramdown
+permalink: /:categories/:title/
+remote_theme: jekyll/minima # Tema base leve
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
