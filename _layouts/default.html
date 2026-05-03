@@ -5,78 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} | GMM</title>
     <style>
+        /* Reset básico para garantir que o tema antigo suma */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         :root {
-            --bg: #ffffff;
-            --subtle-bg: #fbfbfd;
-            --text: #1d1d1f;
-            --secondary: #6e6e73;
-            --accent: #0066cc; /* Azul clássico e confiável */
-            --border: #d2d2d7;
+            --apple-bg: #ffffff;
+            --apple-text: #1d1d1f;
+            --apple-secondary: #6e6e73;
+            --apple-link: #0066cc;
         }
 
         body { 
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif; 
-            background: var(--bg); 
-            color: var(--text); 
-            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif !important; 
+            background-color: var(--apple-bg) !important; 
+            color: var(--apple-text) !important;
             -webkit-font-smoothing: antialiased;
+            line-height: 1.47059;
         }
 
         header { 
-            padding: 4rem 2rem 2rem; 
+            padding: 80px 20px 40px; 
             text-align: center; 
         }
 
         header h1 a { 
             text-decoration: none; 
-            color: var(--text); 
+            color: var(--apple-text); 
             font-weight: 600; 
-            font-size: 1.1rem; 
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
+            font-size: 21px; 
+            letter-spacing: -0.022em;
         }
 
         main { 
-            max-width: 1100px; 
+            max-width: 980px; 
             margin: 0 auto; 
-            padding: 0 2rem 6rem; 
-        }
-
-        .btn-olx { 
-            display: inline-block; 
-            background: var(--text); 
-            color: #fff; 
-            padding: 10px 22px; 
-            text-decoration: none; 
-            border-radius: 6px; 
-            font-weight: 500; 
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
-        }
-
-        .btn-olx:hover {
-            background: #424245;
-            transform: translateY(-1px);
+            padding: 0 20px 100px; 
         }
 
         footer { 
             text-align: center; 
-            padding: 4rem; 
-            border-top: 1px solid #f2f2f2; 
-            color: var(--secondary); 
-            font-size: 0.8rem; 
+            padding: 40px 20px; 
+            border-top: 1px solid #d2d2d7; 
+            color: var(--apple-secondary); 
+            font-size: 12px; 
+        }
+
+        .btn-olx { 
+            display: inline-block; 
+            background: #0071e3; 
+            color: #fff; 
+            padding: 8px 16px; 
+            text-decoration: none; 
+            border-radius: 980px; 
+            font-size: 14px;
+            font-weight: 400;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1><a href="/">E-BAZAR GMM</a></h1>
-    </header>
-    <main>
-        {{ content }}
-    </main>
-    <footer>
-        <p>&copy; 2026 GMM</p>
-    </footer>
+    <header><h1><a href="/">E-BAZAR GMM</a></h1></header>
+    <main>{{ content }}</main>
+    <footer><p>&copy; 2026 GMM</p></footer>
 </body>
 </html>

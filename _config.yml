@@ -1,9 +1,20 @@
-title: E-Bazar GMM
-description: Bazar pessoal de desapegos.
+title: E-BAZAR GMM
 url: "https://e-bazar.gmm.tec.br"
 baseurl: ""
+
+# Força o Jekyll a não usar NENHUM tema externo
+theme: null
+remote_theme: null
+
+# Configurações de Markdown
 markdown: kramdown
-permalink: /:categories/:title/
+kramdown:
+  input: GFM
+
+# Plugins essenciais
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+
+# Garante que o GitHub não ignore seus arquivos
+include: ["_pages", "_posts", "_data", "_layouts"]
