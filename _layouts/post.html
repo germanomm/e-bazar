@@ -2,13 +2,34 @@
 layout: default
 ---
 <style>
+    /* Botão Voltar Minimalista */
+    .back-nav {
+        margin-bottom: 2rem;
+    }
+    .btn-back {
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        transition: color 0.3s ease;
+    }
+    .btn-back:hover {
+        color: var(--accent);
+    }
+    .btn-back svg {
+        margin-right: 8px;
+    }
+
     /* Layout do Produto */
     .product-container {
         display: grid;
         grid-template-columns: 400px 1fr;
         gap: 60px;
         align-items: start;
-        margin-top: 40px;
     }
 
     /* Galeria de Imagem */
@@ -62,8 +83,16 @@ layout: default
         }
         .product-image { padding: 20px; }
         .product-image img { max-width: 250px; }
+        .btn-back { justify-content: center; width: 100%; }
     }
 </style>
+
+<nav class="back-nav">
+    <a href="/" class="btn-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Voltar para a Vitrine
+    </a>
+</nav>
 
 <article class="product-container">
     <div class="product-image">
