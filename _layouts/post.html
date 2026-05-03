@@ -2,43 +2,110 @@
 layout: default
 ---
 <style>
-    .item-layout {
+    /* Layout do Produto */
+    .product-container {
         display: grid;
         grid-template-columns: 400px 1fr;
-        gap: 5rem;
-        margin-top: 2rem;
-    }
-    .item-gallery img {
-        width: 100%;
-        max-width: 400px;
-        border-radius: 8px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-    }
-    .item-details h2 { font-size: 2.2rem; margin-top: 0; font-weight: 700; }
-    .item-price { font-size: 1.5rem; color: var(--text); margin: 1rem 0 2rem; font-weight: 400; }
-    .item-description { 
-        font-size: 1.1rem; 
-        color: var(--secondary); 
-        line-height: 1.7; 
-        margin-bottom: 3rem;
+        gap: 60px;
+        align-items: start;
+        margin-top: 40px;
     }
 
+    /* Galeria de Imagem */
+    .product-image {
+        background: var(--card-bg);
+        border-radius: 12px;
+        padding: 40px;
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .product-image img {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        border-radius: 4px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    /* Informações do Produto */
+    .product-info h2 {
+        font-size: 32px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        margin-bottom: 10px;
+        color: var(--text-main);
+    }
+
+    .product-price {
+        font-size: 24px;
+        color: var(--accent);
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+
+    .product-content {
+        font-size: 17px;
+        line-height: 1.7;
+        color: var(--text-main);
+        margin-bottom: 40px;
+    }
+
+    /* Ajuste Mobile */
     @media (max-width: 850px) {
-        .item-layout { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
-        .item-gallery img { max-width: 300px; }
+        .product-container { 
+            grid-template-columns: 1fr; 
+            gap: 40px; 
+            text-align: center; 
+        }
+        .product-image { padding: 20px; }
+        .product-image img { max-width: 250px; }
     }
 </style>
 
-<div class="item-layout">
-    <div class="item-gallery">
+<article class="product-container">
+    <div class="product-image">
         <img src="{{ page.imagem }}" alt="{{ page.title }}">
     </div>
-    <div class="item-details">
+
+    <div class="product-info">
         <h2>{{ page.title }}</h2>
-        <div class="item-price">R$ {{ page.preco }}</div>
-        <div class="item-description">
+        <div class="product-price">R$ {{ page.preco }}</div>
+        
+        <div class="product-content">
             {{ content }}
         </div>
-        <a href="{{ page.link_olx }}" target="_blank" class="btn-olx">Comprar na OLX</a>
+
+        <a href="{{ page.link_olx }}" target="_blank" class="btn-olx">
+            Comprar na OLX
+        </a>
     </div>
-</div>
+</article>
+
+<!-- Bloco de Dados Estruturados (JSON-LD) para SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "{{ page.title }}",
+  "image": "{{ site.url }}{{ page.imagem }}",
+  "description": "{{ content | strip_html | strip_newlines | truncate: 160 }}",
+  "brand": {
+    "@type": "Brand",
+    "name": "Acervo Pessoal GMM"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ site.url }}{{ page.url }}",
+    "priceCurrency": "BRL",
+    "price": "{{ page.preco | replace: '.', '' | replace: ',', '.' }}",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Person",
+      "name": "Germano Mascarenhas"
+    }
+  }
+}
+</script>
