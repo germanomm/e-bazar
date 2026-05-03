@@ -1,20 +1,22 @@
+# Configurações Gerais
 title: E-BAZAR GMM
 url: "https://e-bazar.gmm.tec.br"
 baseurl: ""
 
-# Força o Jekyll a não usar NENHUM tema externo
+# Estrutura de Links
+# Força o formato /categoria/titulo/ (remove ano/mês/dia da URL)
+permalink: /:categories/:title/
+
+# Desativa temas externos para usar nosso CSS customizado
 theme: null
 remote_theme: null
 
-# Configurações de Markdown
-markdown: kramdown
-kramdown:
-  input: GFM
-
-# Plugins essenciais
+# Plugins
 plugins:
   - jekyll-feed
   - jekyll-sitemap
 
-# Garante que o GitHub não ignore seus arquivos
-include: ["_pages", "_posts", "_data", "_layouts"]
+# Processamento de Arquivos
+markdown: kramdown
+include: ["_posts", "_layouts", "assets", "_data"]
+exclude: ["Gemfile", "Gemfile.lock", "node_modules", "vendor/"]

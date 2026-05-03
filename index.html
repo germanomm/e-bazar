@@ -3,73 +3,109 @@ layout: default
 title: Home
 ---
 <style>
+    /* Seção de Introdução */
     .intro-section {
-        max-width: 600px;
-        margin: 0 auto 4rem;
+        max-width: 650px;
+        margin: 0 auto 5rem;
         text-align: center;
+        padding: 0 20px;
     }
     .intro-section p {
         font-size: 16px;
-        color: var(--apple-secondary);
-        line-height: 1.5;
-        margin-bottom: 12px;
+        color: var(--text-secondary);
+        line-height: 1.8;
+        margin-bottom: 15px;
     }
     .badge-perfil {
-        font-size: 14px;
-        color: var(--apple-link);
+        display: inline-block;
+        font-size: 13px;
+        color: var(--accent);
         text-decoration: none;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        border-bottom: 1px solid transparent;
+        transition: border 0.3s;
     }
-    .badge-perfil:hover { text-decoration: underline; }
+    .badge-perfil:hover { 
+        border-bottom: 1px solid var(--accent); 
+    }
 
-    /* Grid com itens menores */
+    /* Grid de Produtos - Compacto e Elegante */
     .product-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Reduzido de 280px para 200px */
-        gap: 3rem 2rem;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 4rem 2.5rem;
     }
-    .product-card {
-        text-decoration: none;
-        color: inherit;
-        text-align: center;
+    
+    .product-card { 
+        text-decoration: none; 
+        color: inherit; 
+        text-align: center; 
+        display: block;
     }
+    
+    /* Container da Imagem com fundo branco para destacar */
     .img-wrapper {
-        background: #fbfbfd;
-        border-radius: 12px;
-        padding: 15px;
-        margin-bottom: 1rem;
-        transition: transform 0.3s ease;
-        display: flex;
-        align-items: center;
+        background: var(--card-bg);
+        border-radius: 8px;
+        padding: 25px;
+        margin-bottom: 1.5rem;
+        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+        border: 1px solid var(--border);
+        display: flex; 
+        align-items: center; 
         justify-content: center;
+        aspect-ratio: 1 / 1; /* Garante que todos os quadrados sejam iguais */
     }
+    
     .product-card:hover .img-wrapper {
-        transform: scale(1.02);
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(166, 139, 109, 0.15);
     }
+    
     .img-wrapper img {
-        width: auto;
+        max-height: 180px; /* Reduzido para ficar mais delicado */
+        width: auto; 
         max-width: 100%;
-        height: 180px; /* Altura fixa menor para uniformidade */
         object-fit: contain;
-        border-radius: 4px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        filter: drop-shadow(0 5px 15px rgba(0,0,0,0.08));
     }
+    
+    /* Detalhes do Texto */
     .product-card h3 { 
         font-size: 15px; 
-        margin: 0; 
         font-weight: 500; 
-        color: var(--apple-text);
+        margin: 0;
+        color: var(--text-main);
+        letter-spacing: -0.01em;
     }
+    
     .product-card .price { 
-        color: var(--apple-secondary); 
-        margin-top: 5px; 
+        color: var(--accent); 
+        font-weight: 600; 
+        margin-top: 8px; 
         font-size: 14px; 
+    }
+
+    /* Ajuste Responsivo */
+    @media (max-width: 480px) {
+        .product-grid {
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 2rem 1.5rem;
+        }
+        .img-wrapper { padding: 15px; }
+        .img-wrapper img { max-height: 140px; }
     }
 </style>
 
 <section class="intro-section">
-    <p>Objetos pessoais listados para venda via <strong>OLX</strong>. Transações seguras diretamente pela plataforma.</p>
+    <p>
+        Uma curadoria de itens pessoais e desapegos. 
+        As vendas são processadas com a segurança e garantia da plataforma <strong>OLX</strong>.
+    </p>
     <a href="https://www.olx.com.br/perfil/germano-cfa4a2b5" target="_blank" class="badge-perfil">
-        Perfil do Vendedor →
+        Vendedor Qualificado na OLX →
     </a>
 </section>
 

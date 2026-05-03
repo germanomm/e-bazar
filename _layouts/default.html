@@ -5,60 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} | GMM</title>
     <style>
-        /* Reset básico para garantir que o tema antigo suma */
+        :root {
+            /* Paleta Bege Premium */
+            --bg-color: #f9f7f2;      /* Bege bem claro (Sand) */
+            --card-bg: #ffffff;       /* Branco puro para os cards */
+            --text-main: #2c2c2e;     /* Cinza quase preto para leitura */
+            --text-secondary: #8e8e93; 
+            --accent: #a68b6d;        /* Bronze/Bege escuro para detalhes */
+            --border: #e8e6e1;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        :root {
-            --apple-bg: #ffffff;
-            --apple-text: #1d1d1f;
-            --apple-secondary: #6e6e73;
-            --apple-link: #0066cc;
-        }
-
         body { 
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif !important; 
-            background-color: var(--apple-bg) !important; 
-            color: var(--apple-text) !important;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-main);
             -webkit-font-smoothing: antialiased;
-            line-height: 1.47059;
+            line-height: 1.6;
         }
 
-        header { 
-            padding: 80px 20px 40px; 
-            text-align: center; 
-        }
-
+        header { padding: 80px 20px 40px; text-align: center; }
         header h1 a { 
-            text-decoration: none; 
-            color: var(--apple-text); 
-            font-weight: 600; 
-            font-size: 21px; 
-            letter-spacing: -0.022em;
+            text-decoration: none; color: var(--text-main); 
+            font-weight: 500; font-size: 1.1rem; letter-spacing: 0.15em;
+            text-transform: uppercase;
         }
 
-        main { 
-            max-width: 980px; 
-            margin: 0 auto; 
-            padding: 0 20px 100px; 
-        }
+        main { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
         footer { 
-            text-align: center; 
-            padding: 40px 20px; 
-            border-top: 1px solid #d2d2d7; 
-            color: var(--apple-secondary); 
-            font-size: 12px; 
+            text-align: center; padding: 80px 20px; 
+            color: var(--text-secondary); font-size: 11px; 
+            letter-spacing: 0.05em;
         }
 
         .btn-olx { 
-            display: inline-block; 
-            background: #0071e3; 
-            color: #fff; 
-            padding: 8px 16px; 
-            text-decoration: none; 
-            border-radius: 980px; 
-            font-size: 14px;
-            font-weight: 400;
+            display: inline-block; background: var(--text-main); color: #fff; 
+            padding: 12px 28px; text-decoration: none; border-radius: 4px; 
+            font-size: 13px; font-weight: 500; transition: all 0.3s;
+            border: 1px solid var(--text-main);
+        }
+        .btn-olx:hover { 
+            background: transparent; color: var(--text-main);
         }
     </style>
 </head>
