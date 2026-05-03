@@ -2,37 +2,43 @@
 layout: default
 ---
 <style>
-    .product-layout {
+    .item-layout {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-        align-items: start;
-        padding-top: 2rem;
+        grid-template-columns: 400px 1fr;
+        gap: 5rem;
+        margin-top: 2rem;
     }
-    @media (max-width: 768px) {
-        .product-layout { grid-template-columns: 1fr; gap: 2rem; }
-    }
-    .product-image img {
+    .item-gallery img {
         width: 100%;
         max-width: 400px;
-        border-radius: 16px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.06);
     }
-    .product-info h2 { font-size: 2rem; margin-top: 0; }
-    .product-price { font-size: 1.5rem; color: var(--accent); font-weight: 600; margin-bottom: 2rem; }
-    .product-desc { color: #424245; font-size: 1.1rem; margin-bottom: 2rem; }
+    .item-details h2 { font-size: 2.2rem; margin-top: 0; font-weight: 700; }
+    .item-price { font-size: 1.5rem; color: var(--text); margin: 1rem 0 2rem; font-weight: 400; }
+    .item-description { 
+        font-size: 1.1rem; 
+        color: var(--secondary); 
+        line-height: 1.7; 
+        margin-bottom: 3rem;
+    }
+
+    @media (max-width: 850px) {
+        .item-layout { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+        .item-gallery img { max-width: 300px; }
+    }
 </style>
 
-<article class="product-layout">
-    <div class="product-image">
+<div class="item-layout">
+    <div class="item-gallery">
         <img src="{{ page.imagem }}" alt="{{ page.title }}">
     </div>
-    <div class="product-info">
+    <div class="item-details">
         <h2>{{ page.title }}</h2>
-        <p class="product-price">R$ {{ page.preco }}</p>
-        <div class="product-desc">
+        <div class="item-price">R$ {{ page.preco }}</div>
+        <div class="item-description">
             {{ content }}
         </div>
         <a href="{{ page.link_olx }}" target="_blank" class="btn-olx">Comprar na OLX</a>
     </div>
-</article>
+</div>
