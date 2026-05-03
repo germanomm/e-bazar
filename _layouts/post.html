@@ -2,139 +2,82 @@
 layout: default
 ---
 <style>
-    /* Botão Voltar Minimalista */
-    .back-nav {
-        margin-bottom: 2rem;
+    .back-btn {
+        margin-bottom: 40px;
+        display: inline-block;
     }
-    .btn-back {
+    .btn-link {
         text-decoration: none;
         color: var(--text-secondary);
-        font-size: 13px;
-        font-weight: 500;
-        letter-spacing: 0.05em;
+        font-size: 11px;
+        letter-spacing: 0.2em;
         text-transform: uppercase;
-        display: inline-flex;
-        align-items: center;
-        transition: color 0.3s ease;
-    }
-    .btn-back:hover {
-        color: var(--accent);
-    }
-    .btn-back svg {
-        margin-right: 8px;
     }
 
-    /* Layout do Produto */
-    .product-container {
+    .product-page {
         display: grid;
-        grid-template-columns: 400px 1fr;
-        gap: 60px;
-        align-items: start;
-    }
-
-    /* Galeria de Imagem */
-    .product-image {
-        background: var(--card-bg);
-        border-radius: 12px;
-        padding: 40px;
-        border: 1px solid var(--border);
-        display: flex;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
         align-items: center;
-        justify-content: center;
     }
 
-    .product-image img {
+    .product-view {
+        background: var(--card-bg);
+        border-radius: 60px;
+        padding: 60px;
+        border: 1px solid var(--border);
+    }
+
+    .product-view img {
         width: 100%;
-        max-width: 320px;
         height: auto;
-        border-radius: 4px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        border-radius: 20px;
     }
 
-    /* Informações do Produto */
-    .product-info h2 {
-        font-size: 32px;
-        font-weight: 600;
-        letter-spacing: -0.01em;
-        margin-bottom: 10px;
-        color: var(--text-main);
+    .product-data h2 { 
+        font-size: 32px; font-weight: 300; letter-spacing: 0.05em; margin-bottom: 20px; 
+    }
+    .product-data .price { 
+        font-size: 24px; color: var(--accent); margin-bottom: 30px; 
+    }
+    .product-data .description { 
+        font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 40px; 
     }
 
-    .product-price {
-        font-size: 24px;
-        color: var(--accent);
-        font-weight: 600;
-        margin-bottom: 30px;
-    }
-
-    .product-content {
-        font-size: 17px;
-        line-height: 1.7;
-        color: var(--text-main);
-        margin-bottom: 40px;
-    }
-
-    /* Ajuste Mobile */
-    @media (max-width: 850px) {
-        .product-container { 
-            grid-template-columns: 1fr; 
-            gap: 40px; 
-            text-align: center; 
-        }
-        .product-image { padding: 20px; }
-        .product-image img { max-width: 250px; }
-        .btn-back { justify-content: center; width: 100%; }
+    @media (max-width: 900px) {
+        .product-page { grid-template-columns: 1fr; gap: 40px; text-align: center; }
     }
 </style>
 
-<nav class="back-nav">
-    <a href="/" class="btn-back">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-        Voltar para a Vitrine
-    </a>
-</nav>
+<div class="back-btn">
+    <a href="/" class="btn-link">← Voltar para vitrine</a>
+</div>
 
-<article class="product-container">
-    <div class="product-image">
+<article class="product-page">
+    <div class="product-view">
         <img src="{{ page.imagem }}" alt="{{ page.title }}">
     </div>
-
-    <div class="product-info">
+    <div class="product-data">
         <h2>{{ page.title }}</h2>
-        <div class="product-price">R$ {{ page.preco }}</div>
-        
-        <div class="product-content">
-            {{ content }}
-        </div>
-
-        <a href="{{ page.link_olx }}" target="_blank" class="btn-olx">
-            Comprar na OLX
-        </a>
+        <div class="price">R$ {{ page.preco }}</div>
+        <div class="description">{{ content }}</div>
+        <a href="{{ page.link_olx }}" target="_blank" class="btn-olx">Garantir na OLX</a>
     </div>
 </article>
 
-<!-- Bloco de Dados Estruturados (JSON-LD) para SEO -->
+<!-- JSON-LD Product -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
   "@type": "Product",
   "name": "{{ page.title }}",
   "image": "{{ site.url }}{{ page.imagem }}",
-  "description": "{{ content | strip_html | strip_newlines | truncate: 160 }}",
-  "brand": {
-    "@type": "Brand",
-    "name": "Acervo Pessoal GMM"
-  },
+  "description": "{{ content | strip_html | truncate: 160 }}",
   "offers": {
     "@type": "Offer",
-    "url": "{{ site.url }}{{ page.url }}",
     "priceCurrency": "BRL",
     "price": "{{ page.preco | replace: '.', '' | replace: ',', '.' }}",
-    "availability": "https://schema.org/InStock",
-    "seller": {
-      "@type": "Person",
-      "name": "Germano Mascarenhas"
-    }
+    "url": "{{ site.url }}{{ page.url }}"
   }
 }
 </script>

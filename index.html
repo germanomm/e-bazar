@@ -1,108 +1,70 @@
 ---
 layout: default
-title: Home
+title: Vitrine
 ---
 <style>
-    /* Seção de Introdução */
-    .intro-section {
-        max-width: 650px;
-        margin: 0 auto 5rem;
+    .intro-text {
         text-align: center;
-        padding: 0 20px;
-    }
-    .intro-section p {
-        font-size: 16px;
-        color: var(--text-secondary);
-        line-height: 1.8;
-        margin-bottom: 15px;
-    }
-    .badge-perfil {
-        display: inline-block;
-        font-size: 13px;
-        color: var(--accent);
-        text-decoration: none;
-        font-weight: 600;
+        max-width: 500px;
+        margin: 0 auto 80px;
+        font-size: 14px;
         letter-spacing: 0.05em;
+        color: var(--text-secondary);
         text-transform: uppercase;
-        border-bottom: 1px solid transparent;
-        transition: border 0.3s;
-    }
-    .badge-perfil:hover { 
-        border-bottom: 1px solid var(--accent); 
     }
 
-    /* Grid de Produtos - Compacto e Elegante */
     .product-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 4rem 2.5rem;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 50px 30px;
     }
     
     .product-card { 
         text-decoration: none; 
         color: inherit; 
-        text-align: center; 
-        display: block;
+        transition: all 0.4s ease;
     }
     
-    /* Container da Imagem com fundo branco para destacar */
     .img-wrapper {
         background: var(--card-bg);
-        border-radius: 8px;
-        padding: 25px;
-        margin-bottom: 1.5rem;
-        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+        border-radius: 40px; /* Bordas bem redondas estilo Oh My Candy */
+        padding: 40px;
+        margin-bottom: 25px;
         border: 1px solid var(--border);
-        display: flex; 
-        align-items: center; 
-        justify-content: center;
-        aspect-ratio: 1 / 1; 
+        display: flex; align-items: center; justify-content: center;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        transition: all 0.4s ease;
     }
     
     .product-card:hover .img-wrapper {
-        transform: translateY(-8px);
-        box-shadow: 0 15px 30px rgba(166, 139, 109, 0.15);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        transform: translateY(-10px);
     }
     
     .img-wrapper img {
-        max-height: 180px; 
-        width: auto; 
-        max-width: 100%;
+        max-height: 100%;
+        width: auto;
         object-fit: contain;
-    }
-    
-    .product-card h3 { 
-        font-size: 15px; 
-        font-weight: 500; 
-        margin: 0;
-        color: var(--text-main);
-        letter-spacing: -0.01em;
-    }
-    
-    .product-card .price { 
-        color: var(--accent); 
-        font-weight: 600; 
-        margin-top: 8px; 
-        font-size: 14px; 
+        transition: transform 0.6s ease;
     }
 
-    @media (max-width: 480px) {
-        .product-grid {
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 2rem 1.5rem;
-        }
+    .product-card:hover img { transform: scale(1.1); }
+    
+    .product-info { text-align: center; }
+    .product-info h3 { 
+        font-size: 16px; font-weight: 500; margin-bottom: 8px; 
+        letter-spacing: 0.02em;
+    }
+    .product-info .price { 
+        color: var(--accent); font-weight: 400; font-size: 18px; 
     }
 </style>
 
-<section class="intro-section">
-    <p>
-        Uma curadoria de itens pessoais e desapegos. 
-        As vendas são processadas com a segurança e garantia da plataforma <strong>OLX</strong>.
-    </p>
-    <a href="https://www.olx.com.br/perfil/germano-cfa4a2b5" target="_blank" class="badge-perfil">
-        Vendedor Qualificado na OLX →
-    </a>
-</section>
+<div class="intro-text">
+    Curadoria exclusiva de itens pessoais. <br>
+    Qualidade e sofisticação em cada detalhe.
+</div>
 
 <div class="product-grid">
   {% for post in site.posts %}
@@ -110,19 +72,19 @@ title: Home
         <div class="img-wrapper">
             <img src="{{ post.imagem }}" alt="{{ post.title }}">
         </div>
-        <h3>{{ post.title }}</h3>
-        <p class="price">R$ {{ post.preco }}</p>
+        <div class="product-info">
+            <h3>{{ post.title }}</h3>
+            <p class="price">R$ {{ post.preco }}</p>
+        </div>
     </a>
   {% endfor %}
 </div>
 
-<!-- Dados Estruturados para a Listagem (SEO) -->
+<!-- JSON-LD ItemList -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
   "@type": "ItemList",
-  "name": "E-Bazar GMM",
-  "description": "Objetos pessoais disponíveis no OLX",
   "itemListElement": [
     {% for post in site.posts %}
     {

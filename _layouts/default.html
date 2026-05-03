@@ -6,48 +6,48 @@
     <title>{{ page.title }} | GMM</title>
     <style>
         :root {
-            /* Paleta Bege Premium */
-            --bg-color: #f9f7f2;      /* Bege bem claro (Sand) */
-            --card-bg: #ffffff;       /* Branco puro para os cards */
-            --text-main: #2c2c2e;     /* Cinza quase preto para leitura */
-            --text-secondary: #8e8e93; 
-            --accent: #a68b6d;        /* Bronze/Bege escuro para detalhes */
-            --border: #e8e6e1;
+            --bg-color: #f8f3f0;      /* Bege Nude (estilo Oh My Candy) */
+            --card-bg: #ffffff;       /* Branco para profundidade */
+            --text-main: #2d2d2d;     /* Cinza grafite suave */
+            --text-secondary: #7a7a7a; 
+            --accent: #c5a880;        /* Tom Champagne/Dourado fosco */
+            --border: #ece4dd;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif; 
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif; 
             background-color: var(--bg-color); 
             color: var(--text-main);
             -webkit-font-smoothing: antialiased;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
-        header { padding: 80px 20px 40px; text-align: center; }
+        header { padding: 100px 20px 60px; text-align: center; }
         header h1 a { 
             text-decoration: none; color: var(--text-main); 
-            font-weight: 500; font-size: 1.1rem; letter-spacing: 0.15em;
+            font-weight: 300; font-size: 1.5rem; letter-spacing: 0.2em;
             text-transform: uppercase;
         }
 
-        main { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        main { max-width: 1200px; margin: 0 auto; padding: 0 20px 100px; }
 
         footer { 
-            text-align: center; padding: 80px 20px; 
-            color: var(--text-secondary); font-size: 11px; 
-            letter-spacing: 0.05em;
+            text-align: center; padding: 100px 20px; 
+            color: var(--text-secondary); font-size: 10px; 
+            letter-spacing: 0.1em; text-transform: uppercase;
         }
 
         .btn-olx { 
             display: inline-block; background: var(--text-main); color: #fff; 
-            padding: 12px 28px; text-decoration: none; border-radius: 4px; 
-            font-size: 13px; font-weight: 500; transition: all 0.3s;
-            border: 1px solid var(--text-main);
+            padding: 15px 35px; text-decoration: none; border-radius: 50px; 
+            font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+            text-transform: uppercase; transition: all 0.4s ease;
         }
         .btn-olx:hover { 
-            background: transparent; color: var(--text-main);
+            background: var(--accent);
+            transform: scale(1.05);
         }
     </style>
 </head>
