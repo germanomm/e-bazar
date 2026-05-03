@@ -1,4 +1,4 @@
-- titulo: "Verity"
+- titulo: "Livro Verity - Colleen Hoover"
   categoria: "livros"
   preco: "40,00"
   slug: "verity-colleen-hoover"
@@ -7,7 +7,7 @@
   imagem: "assets/imagens/verity.jpg"
   descricao: "Thriller psicológico fenomenal de Colleen Hoover. Novo, ainda lacrado. Filme anunciado com Anne Hathaway!"
 
-- titulo: "A Vida Invisível de Addie LaRue"
+- titulo: "Livro A Vida Invisível de Addie LaRue"
   categoria: "livros"
   preco: "45,00"
   slug: "addie-larue-ve-schwab"

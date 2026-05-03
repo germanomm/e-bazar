@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A Vida Invisível de Addie LaRue - V.E. Schwab"
+title: "Livro A Vida Invisível de Addie LaRue - V.E. Schwab"
 preco: "45,00"
 imagem: "/assets/imagens/addie.jpg"
 link_olx: "https://www.olx.com.br/vi/1498932233"
