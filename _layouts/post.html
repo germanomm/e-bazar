@@ -1,12 +1,38 @@
 ---
 layout: default
 ---
-<article style="display: flex; gap: 2rem; flex-wrap: wrap;">
-    <img src="{{ page.imagem }}" alt="{{ page.title }}" style="width: 300px; border-radius: 8px;">
-    <div style="flex: 1; min-width: 300px;">
+<style>
+    .product-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: start;
+        padding-top: 2rem;
+    }
+    @media (max-width: 768px) {
+        .product-layout { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    .product-image img {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .product-info h2 { font-size: 2rem; margin-top: 0; }
+    .product-price { font-size: 1.5rem; color: var(--accent); font-weight: 600; margin-bottom: 2rem; }
+    .product-desc { color: #424245; font-size: 1.1rem; margin-bottom: 2rem; }
+</style>
+
+<article class="product-layout">
+    <div class="product-image">
+        <img src="{{ page.imagem }}" alt="{{ page.title }}">
+    </div>
+    <div class="product-info">
         <h2>{{ page.title }}</h2>
-        <p style="font-size: 1.5rem; font-weight: bold; color: #2d3436;">R$ {{ page.preco }}</p>
-        <p>{{ content }}</p>
+        <p class="product-price">R$ {{ page.preco }}</p>
+        <div class="product-desc">
+            {{ content }}
+        </div>
         <a href="{{ page.link_olx }}" target="_blank" class="btn-olx">Comprar na OLX</a>
     </div>
 </article>

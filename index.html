@@ -2,13 +2,82 @@
 layout: default
 title: Home
 ---
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+<style>
+    /* Estilo para o Texto de Apresentação */
+    .intro-box {
+        max-width: 700px;
+        margin: 0 auto 4rem;
+        text-align: center;
+        padding: 0 1rem;
+    }
+    .intro-box p {
+        color: var(--secondary);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+    }
+    .profile-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        background: #f5f5f7;
+        border-radius: 20px;
+        text-decoration: none;
+        color: var(--text);
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: background 0.2s;
+    }
+    .profile-badge:hover {
+        background: #e5e5e7;
+    }
+    .olx-purple { color: #6e0ad6; font-weight: bold; }
+
+    /* Grid de Produtos (Mantido) */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 3rem 2rem;
+    }
+    .card {
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.3s ease;
+    }
+    .card:hover { transform: translateY(-5px); }
+    .image-container {
+        aspect-ratio: 2/3;
+        overflow: hidden;
+        border-radius: 12px;
+        background: #f5f5f7;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        margin-bottom: 1rem;
+    }
+    .image-container img { width: 100%; height: 100%; object-fit: cover; }
+    .card h3 { font-size: 1rem; margin: 0.5rem 0 0.2rem; font-weight: 500; }
+    .card .price { font-size: 0.9rem; color: var(--secondary); margin: 0; }
+</style>
+
+<section class="intro-box">
+    <p>
+        Este é o meu catálogo pessoal de desapegos. 
+        As vendas não são realizadas diretamente por este site, mas sim através da <span class="olx-purple">OLX</span>, 
+        garantindo a você toda a segurança e proteção da plataforma durante a negociação.
+    </p>
+    <a href="https://www.olx.com.br/perfil/germano-cfa4a2b5" target="_blank" class="profile-badge">
+        <span>Vendedor Qualificado na OLX</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+    </a>
+</section>
+
+<div class="grid">
   {% for post in site.posts %}
-    <div style="border: 1px solid #eee; padding: 1rem; border-radius: 8px;">
-      <a href="{{ post.url }}"><img src="{{ post.imagem }}" style="width: 100%; border-radius: 4px;"></a>
+    <a href="{{ post.url }}" class="card">
+      <div class="image-container">
+        <img src="{{ post.imagem }}" alt="{{ post.title }}">
+      </div>
       <h3>{{ post.title }}</h3>
-      <p>R$ {{ post.preco }}</p>
-      <a href="{{ post.url }}" style="color: #6e0ad6; font-weight: bold;">Ver Detalhes</a>
-    </div>
+      <p class="price">R$ {{ post.preco }}</p>
+    </a>
   {% endfor %}
 </div>
