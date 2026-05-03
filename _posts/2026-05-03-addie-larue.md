@@ -11,6 +11,7 @@ Uma história inesquecível sobre um pacto que muda a vida de uma jovem para sem
 
 **Detalhes do exemplar:**
 * **Gênero:** Fantasia Histórica
+* **Capa:** Normal
 * **Estado:** Novo, ainda lacrado. 
 
 Uma leitura profunda e reflexiva, favorita da comunidade literária (Booktok).
