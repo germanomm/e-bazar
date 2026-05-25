@@ -15,3 +15,12 @@
   link_olx: "https://www.olx.com.br/vi/1504284791"
   imagem: "assets/imagens/ipad.webp"
   descricao: "Kit iPad 9ª Geração 64GB Wi-Fi + Apple Pencil 1ª Geração | Completo | Excelente Estado"
+
+- titulo: "Livro Verity - Colleen Hoover"
+  categoria: "livros"
+  preco: "40,00"
+  slug: "verity-colleen-hoover"
+  status: "indisponível"
+  link_olx: "https://www.olx.com.br/vi/1498928309"
+  imagem: "assets/imagens/verity.jpg"
+  descricao: "Thriller psicológico fenomenal de Colleen Hoover. Novo, ainda lacrado. Filme anunciado com Anne Hathaway!"
